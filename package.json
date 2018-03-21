@@ -1,8 +1,8 @@
 {
-  "name": "react-native-alipay",
+  "name": "react-native-component-alipay",
   "version": "0.0.1",
-  "description": "react-native 支付宝SDK 插件",
-  "main": "Alipay.js",
+  "description": "Alipay auth login for react native, support Android & IOS",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,16 +11,14 @@
     "url": "git+https://github.com/shpeng/react-native-alipay.git"
   },
   "keywords": [
-    "react-native",
-    "smart",
     "alipay",
-    "component"
+    "react-native",
+    "auth"
   ],
-  "author": "HISAME SHIZUMARU",
-  "license": "MIT",
+  "author": "beck",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shpeng/react-native-alipay.git/issues"
+    "url": "https://github.com/shpeng/react-native-alipay/issues"
   },
-  "homepage": "https://github.com/shpeng/react-native-alipay.git#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/shpeng/react-native-alipay#readme"
 }
