@@ -30,7 +30,6 @@ public class RCTAlipayModule extends ReactContextBaseJavaModule {
     private static final int SDK_AUTH_FLAG = 2;
     ReactApplicationContext context;
 
-
     public RCTAlipayModule(ReactApplicationContext reactContext) {
         super(reactContext);
         context = reactContext;

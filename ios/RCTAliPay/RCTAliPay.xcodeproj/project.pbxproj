@@ -20,11 +20,15 @@
 		750B63CC20624510006A167E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63CB20624510006A167E /* CFNetwork.framework */; };
 		750B63CE20624537006A167E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63CD20624537006A167E /* CoreMotion.framework */; };
 		750B63D02062456B006A167E /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63CF2062456B006A167E /* AlipaySDK.framework */; };
-		750B63DF20625D03006A167E /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B63D520625D02006A167E /* base64.m */; };
-		750B63E020625D03006A167E /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B63D820625D02006A167E /* NSDataEx.m */; };
-		750B63E120625D03006A167E /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B63DA20625D02006A167E /* openssl_wrapper.m */; };
-		750B63E220625D03006A167E /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B63DC20625D02006A167E /* RSADataSigner.m */; };
-		750B63E320625D03006A167E /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B63DE20625D02006A167E /* RSADataVerifier.m */; };
+		750B65542063B498006A167E /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B65432063B498006A167E /* AlipaySDK.framework */; };
+		750B65552063B498006A167E /* APAuthV2Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65452063B498006A167E /* APAuthV2Info.m */; };
+		750B65562063B498006A167E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B65462063B498006A167E /* libcrypto.a */; };
+		750B65572063B498006A167E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B65472063B498006A167E /* libssl.a */; };
+		750B65582063B498006A167E /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B654A2063B498006A167E /* base64.m */; };
+		750B65592063B498006A167E /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B654D2063B498006A167E /* NSDataEx.m */; };
+		750B655A2063B498006A167E /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B654F2063B498006A167E /* openssl_wrapper.m */; };
+		750B655B2063B498006A167E /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65512063B498006A167E /* RSADataSigner.m */; };
+		750B655C2063B498006A167E /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65532063B498006A167E /* RSADataVerifier.m */; };
 		9F303CFA1E0B7B94002A4A05 /* RCTAliPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */; };
 		9F303CFB1E0B7B94002A4A05 /* RCTAliPay.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */; };
 /* End PBXBuildFile section */
@@ -57,17 +61,23 @@
 		750B63CB20624510006A167E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		750B63CD20624537006A167E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		750B63CF2062456B006A167E /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = ../Frameworks/AlipaySDK.framework; sourceTree = "<group>"; };
-		750B63D420625D02006A167E /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		750B63D520625D02006A167E /* base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
-		750B63D620625D02006A167E /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		750B63D720625D02006A167E /* NSDataEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
-		750B63D820625D02006A167E /* NSDataEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
-		750B63D920625D02006A167E /* openssl_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
-		750B63DA20625D02006A167E /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
-		750B63DB20625D02006A167E /* RSADataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataSigner.h; sourceTree = "<group>"; };
-		750B63DC20625D02006A167E /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
-		750B63DD20625D02006A167E /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
-		750B63DE20625D02006A167E /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		750B65422063B498006A167E /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		750B65432063B498006A167E /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		750B65442063B498006A167E /* APAuthV2Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAuthV2Info.h; sourceTree = "<group>"; };
+		750B65452063B498006A167E /* APAuthV2Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAuthV2Info.m; sourceTree = "<group>"; };
+		750B65462063B498006A167E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		750B65472063B498006A167E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		750B65492063B498006A167E /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		750B654A2063B498006A167E /* base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
+		750B654B2063B498006A167E /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		750B654C2063B498006A167E /* NSDataEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
+		750B654D2063B498006A167E /* NSDataEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
+		750B654E2063B498006A167E /* openssl_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
+		750B654F2063B498006A167E /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
+		750B65502063B498006A167E /* RSADataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataSigner.h; sourceTree = "<group>"; };
+		750B65512063B498006A167E /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
+		750B65522063B498006A167E /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
+		750B65532063B498006A167E /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		9F303CF51E0B7B94002A4A05 /* libRCTAliPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAliPay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAliPay.h; sourceTree = "<group>"; };
 		9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAliPay.m; sourceTree = "<group>"; };
@@ -78,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750B65572063B498006A167E /* libssl.a in Frameworks */,
 				750B63D02062456B006A167E /* AlipaySDK.framework in Frameworks */,
 				750B63CE20624537006A167E /* CoreMotion.framework in Frameworks */,
 				750B63CC20624510006A167E /* CFNetwork.framework in Frameworks */,
@@ -85,9 +96,11 @@
 				750B63C8206244FD006A167E /* UIKit.framework in Frameworks */,
 				750B63C6206244F3006A167E /* CoreGraphics.framework in Frameworks */,
 				750B63C4206244E6006A167E /* CoreText.framework in Frameworks */,
+				750B65542063B498006A167E /* AlipaySDK.framework in Frameworks */,
 				750B63C2206244D4006A167E /* QuartzCore.framework in Frameworks */,
 				750B63C0206244CB006A167E /* CoreTelephony.framework in Frameworks */,
 				750B63BE206244C1006A167E /* SystemConfiguration.framework in Frameworks */,
+				750B65562063B498006A167E /* libcrypto.a in Frameworks */,
 				750B63BC206244B5006A167E /* libz.tbd in Frameworks */,
 				750B63BA206244AB006A167E /* libc++.tbd in Frameworks */,
 				750B63B62062441F006A167E /* AlipaySDK.framework in Frameworks */,
@@ -134,23 +147,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		750B63D320625D02006A167E /* Util */ = {
+		750B65412063B498006A167E /* Ali */ = {
 			isa = PBXGroup;
 			children = (
-				750B63D420625D02006A167E /* base64.h */,
-				750B63D520625D02006A167E /* base64.m */,
-				750B63D620625D02006A167E /* config.h */,
-				750B63D720625D02006A167E /* NSDataEx.h */,
-				750B63D820625D02006A167E /* NSDataEx.m */,
-				750B63D920625D02006A167E /* openssl_wrapper.h */,
-				750B63DA20625D02006A167E /* openssl_wrapper.m */,
-				750B63DB20625D02006A167E /* RSADataSigner.h */,
-				750B63DC20625D02006A167E /* RSADataSigner.m */,
-				750B63DD20625D02006A167E /* RSADataVerifier.h */,
-				750B63DE20625D02006A167E /* RSADataVerifier.m */,
+				750B65422063B498006A167E /* AlipaySDK.bundle */,
+				750B65432063B498006A167E /* AlipaySDK.framework */,
+				750B65442063B498006A167E /* APAuthV2Info.h */,
+				750B65452063B498006A167E /* APAuthV2Info.m */,
+				750B65462063B498006A167E /* libcrypto.a */,
+				750B65472063B498006A167E /* libssl.a */,
+				750B65482063B498006A167E /* Util */,
 			);
-			name = Util;
-			path = ../../../../../ios_workspace/S4SFinancial_iOS/S4SFinancialClient/Ali/Util;
+			path = Ali;
+			sourceTree = "<group>";
+		};
+		750B65482063B498006A167E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				750B65492063B498006A167E /* base64.h */,
+				750B654A2063B498006A167E /* base64.m */,
+				750B654B2063B498006A167E /* config.h */,
+				750B654C2063B498006A167E /* NSDataEx.h */,
+				750B654D2063B498006A167E /* NSDataEx.m */,
+				750B654E2063B498006A167E /* openssl_wrapper.h */,
+				750B654F2063B498006A167E /* openssl_wrapper.m */,
+				750B65502063B498006A167E /* RSADataSigner.h */,
+				750B65512063B498006A167E /* RSADataSigner.m */,
+				750B65522063B498006A167E /* RSADataVerifier.h */,
+				750B65532063B498006A167E /* RSADataVerifier.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		9F303CEC1E0B7B94002A4A05 = {
@@ -173,7 +199,7 @@
 		9F303CF71E0B7B94002A4A05 /* RCTAliPay */ = {
 			isa = PBXGroup;
 			children = (
-				750B63D320625D02006A167E /* Util */,
+				750B65412063B498006A167E /* Ali */,
 				750B63B42062441F006A167E /* AliPayResouces */,
 				750B63B22062441F006A167E /* Frameworks */,
 				9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */,
@@ -239,12 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				750B63E120625D03006A167E /* openssl_wrapper.m in Sources */,
-				750B63DF20625D03006A167E /* base64.m in Sources */,
-				750B63E220625D03006A167E /* RSADataSigner.m in Sources */,
+				750B655B2063B498006A167E /* RSADataSigner.m in Sources */,
+				750B65582063B498006A167E /* base64.m in Sources */,
+				750B655A2063B498006A167E /* openssl_wrapper.m in Sources */,
+				750B655C2063B498006A167E /* RSADataVerifier.m in Sources */,
+				750B65592063B498006A167E /* NSDataEx.m in Sources */,
+				750B65552063B498006A167E /* APAuthV2Info.m in Sources */,
 				9F303CFA1E0B7B94002A4A05 /* RCTAliPay.m in Sources */,
-				750B63E320625D03006A167E /* RSADataVerifier.m in Sources */,
-				750B63E020625D03006A167E /* NSDataEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,12 +369,20 @@
 		9F303CFF1E0B7B94002A4A05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../react-native-smart-alipay/ios/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../../react-native-smart-alipay/ios/Frameworks\"",
+					"$(PROJECT_DIR)/RCTAliPay/Ali",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../react-native/React/**",
 					"$(SRCROOT)/../../../react-native/Libraries",
+					"$(SRCROOT)/RCTAliPay",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RCTAliPay/Ali",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,12 +393,20 @@
 		9F303D001E0B7B94002A4A05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../react-native-smart-alipay/ios/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../../react-native-smart-alipay/ios/Frameworks\"",
+					"$(PROJECT_DIR)/RCTAliPay/Ali",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../react-native/React/**",
 					"$(SRCROOT)/../../../react-native/Libraries",
+					"$(SRCROOT)/RCTAliPay",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RCTAliPay/Ali",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

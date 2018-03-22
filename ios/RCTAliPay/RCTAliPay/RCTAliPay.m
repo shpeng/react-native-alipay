@@ -1,9 +1,9 @@
 
 #import <AlipaySDK/AlipaySDK.h>
 #import "RCTAliPay.h"
-#import "RCTUtils.h"
-#import "RCTBridge.h"
-#import "RCTEventDispatcher.h"
+#import "Ali/Util/base64.h"
+#import "Ali/Util/RSADataSigner.h"
+#import "Ali/APAuthV2Info.h"
 
 @implementation RCTAliPay
 
@@ -26,7 +26,7 @@ RCT_EXPORT_METHOD(payOrder:(NSDictionary *)params){
     
     // NOTE: 调用支付结果开始支付, 如没有安装支付宝app，则会走h5页面，支付回调触发这里的callback
     [[AlipaySDK defaultService] payOrder:orderText fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-//        NSLog(@"payOrder reslut = %@",resultDic);
+        //        NSLog(@"payOrder reslut = %@",resultDic);
         [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
                                                      body:resultDic];
     }];
@@ -34,46 +34,48 @@ RCT_EXPORT_METHOD(payOrder:(NSDictionary *)params){
 
 - (void)processOrderWithPaymentResult:(NSNotification *)notification {
     NSDictionary *resultDic = notification.userInfo;
-//    NSLog(@"RCTAliPay -> processOrderWithPaymentResult resultDic = %@", resultDic);
+    //    NSLog(@"RCTAliPay -> processOrderWithPaymentResult resultDic = %@", resultDic);
     [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
                                                  body:resultDic];
 }
 
 RCT_EXPORT_METHOD(login:(NSDictionary *) params) {
-    NSString *appid = [params objectForKey:@"appid"]
-    NSString *pid = [params objectForKey:@"pid"]
-    NSString *targetid = [params objectForKey:@"target_id"]
-    NSString *rsa2_private = [params objectForKey:@"rsa2_private"]
-    NSString *rsa_private = [params objectForKey:@"rsa_private"]
-    if appid == nil || pid == nil || targetid == nil || rsa_private == nil {
-        printf("no auth info || appid || pid || private key")
+    NSString *appid = [params objectForKey:@"appid"];
+    NSString *pid = [params objectForKey:@"pid"];
+    NSString *targetid = [params objectForKey:@"target_id"];
+    NSString *rsa2_private = [params objectForKey:@"rsa2_pr;ivate"];
+    NSString *rsa_private = [params objectForKey:@"rsa_private"];
+    if (appid == nil || pid == nil || targetid == nil || rsa_private == nil) {
+        printf("no auth info || appid || pid || private key");
     }
     
-    NSObject *authInfo = APAuthV2Info.init()
-    authInfo.pid = pid
-    authInfo.appID = appid
-    authInfo.authType = "LOGIN"
+    APAuthV2Info *authInfo = [APAuthV2Info init];
+    authInfo.pid = pid;
+    authInfo.appID = appid;
+    authInfo.authType = @"LOGIN";
     
-    NSString *authInfoStr = authInfo.description
+    NSString *authInfoStr = authInfo.description;
     
-    RSADataSigner *signer = [RSADataSigner initWithPrivateKey:rsa_private]
+    RSADataSigner *signer = [[RSADataSigner alloc]initWithPrivateKey:rsa_private];
     
-    NSString *signStr = [signer signString:authInfoStr withRSA2:false ]
+    NSString *signStr = [signer signString:authInfoStr withRSA2:false ];
     
-    NSString totalAuthInfoStr = "\(authInfoStr)&sign=\(signStr ?? "")&sign_type=RSA"
+    //    NSString totalAuthInfoStr = "\(authInfoStr)&sign=\(signStr ?? "")&sign_type=RSA";
+    NSString *totalAuthInfoStr = [NSString stringWithFormat:@"\(%@)&sign=\(%@)&sign_type=RSA", authInfoStr, signStr];
     
     [[AlipaySDK defaultService] auth_V2WithInfo:totalAuthInfoStr
-                                           fromScheme:"S4SFinancialClient"
+                                     fromScheme:@"S4SFinancialClient"
                                        callback:^(NSDictionary *resultDic) {
-                                            NSLog(@"login reslut = %@",resultDic);
-//                                           [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
-//                                                                                        body:resultDic];
-                                       }]
+                                           NSLog(@"login reslut = %@",resultDic);
+                                           //                                           [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
+                                           //                                                                                        body:resultDic];
+                                       }];
     
- }
+}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
+
