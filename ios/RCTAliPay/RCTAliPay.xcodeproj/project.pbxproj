@@ -29,8 +29,8 @@
 		750B655A2063B498006A167E /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B654F2063B498006A167E /* openssl_wrapper.m */; };
 		750B655B2063B498006A167E /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65512063B498006A167E /* RSADataSigner.m */; };
 		750B655C2063B498006A167E /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65532063B498006A167E /* RSADataVerifier.m */; };
+		750B671220650067006A167E /* AlipaySDK in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B671120650067006A167E /* AlipaySDK */; };
 		9F303CFA1E0B7B94002A4A05 /* RCTAliPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */; };
-		9F303CFB1E0B7B94002A4A05 /* RCTAliPay.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +40,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				9F303CFB1E0B7B94002A4A05 /* RCTAliPay.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +77,8 @@
 		750B65512063B498006A167E /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		750B65522063B498006A167E /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		750B65532063B498006A167E /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		750B66452064A15A006A167E /* openssl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl; sourceTree = "<group>"; };
+		750B671120650067006A167E /* AlipaySDK */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = AlipaySDK; path = AlipaySDK.framework/AlipaySDK; sourceTree = "<group>"; };
 		9F303CF51E0B7B94002A4A05 /* libRCTAliPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAliPay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAliPay.h; sourceTree = "<group>"; };
 		9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAliPay.m; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 				750B63D02062456B006A167E /* AlipaySDK.framework in Frameworks */,
 				750B63CE20624537006A167E /* CoreMotion.framework in Frameworks */,
 				750B63CC20624510006A167E /* CFNetwork.framework in Frameworks */,
+				750B671220650067006A167E /* AlipaySDK in Frameworks */,
 				750B63CA20624508006A167E /* Foundation.framework in Frameworks */,
 				750B63C8206244FD006A167E /* UIKit.framework in Frameworks */,
 				750B63C6206244F3006A167E /* CoreGraphics.framework in Frameworks */,
@@ -150,6 +152,7 @@
 		750B65412063B498006A167E /* Ali */ = {
 			isa = PBXGroup;
 			children = (
+				750B671120650067006A167E /* AlipaySDK */,
 				750B65422063B498006A167E /* AlipaySDK.bundle */,
 				750B65432063B498006A167E /* AlipaySDK.framework */,
 				750B65442063B498006A167E /* APAuthV2Info.h */,
@@ -199,6 +202,7 @@
 		9F303CF71E0B7B94002A4A05 /* RCTAliPay */ = {
 			isa = PBXGroup;
 			children = (
+				750B66452064A15A006A167E /* openssl */,
 				750B65412063B498006A167E /* Ali */,
 				750B63B42062441F006A167E /* AliPayResouces */,
 				750B63B22062441F006A167E /* Frameworks */,
@@ -370,12 +374,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../react-native-smart-alipay/ios/Frameworks\"",
+					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAliPay/Ali",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../react-native/React/**",
 					"$(SRCROOT)/../../../react-native/Libraries",
 					"$(SRCROOT)/RCTAliPay",
@@ -383,6 +386,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAliPay/Ali",
+					"$(PROJECT_DIR)/RCTAliPay/openssl",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -394,12 +398,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../react-native-smart-alipay/ios/Frameworks\"",
+					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAliPay/Ali",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../react-native/React/**",
 					"$(SRCROOT)/../../../react-native/Libraries",
 					"$(SRCROOT)/RCTAliPay",
@@ -407,6 +410,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAliPay/Ali",
+					"$(PROJECT_DIR)/RCTAliPay/openssl",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

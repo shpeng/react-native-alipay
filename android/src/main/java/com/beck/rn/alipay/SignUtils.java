@@ -6,7 +6,7 @@ import java.security.spec.PKCS8EncodedKeySpec;
 
 public class SignUtils {
 
-	private static final String ALGORITHM = "SA";
+	private static final String ALGORITHM = "RSA";
 
 	private static final String SIGN_ALGORITHMS = "SHA1WithRSA";
 

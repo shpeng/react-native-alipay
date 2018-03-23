@@ -53,7 +53,7 @@ public class OrderInfoUtil2_0 {
 		keyValues.put("auth_type", "AUTHACCOUNT");
 
 		// 签名类型
-		keyValues.put("sign_type", rsa2 ? "RSA2" : "SA");
+		keyValues.put("sign_type", rsa2 ? "RSA2" : "RSA");
 
 		return keyValues;
 	}

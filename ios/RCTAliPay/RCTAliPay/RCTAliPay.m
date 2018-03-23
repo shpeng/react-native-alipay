@@ -4,6 +4,8 @@
 #import "Ali/Util/base64.h"
 #import "Ali/Util/RSADataSigner.h"
 #import "Ali/APAuthV2Info.h"
+#import <React/RCTEventDispatcher.h>
+#import <React/RCTBridge.h>
 
 @implementation RCTAliPay
 
