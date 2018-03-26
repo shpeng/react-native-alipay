@@ -1,5 +1,6 @@
 
-#import "RCTBridgeModule.h"
+//#import "RCTBridgeModule.h"
+#import <React/RCTBridgeModule.h>
 
 @interface RCTAliPay : NSObject <RCTBridgeModule>
 
