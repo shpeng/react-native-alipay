@@ -1,6 +1,6 @@
 {
   "name": "react-native-component-alipay",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Alipay auth login for react native, support Android & IOS",
   "main": "index.js",
   "scripts": {

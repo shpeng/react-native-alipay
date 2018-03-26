@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		750B63B62062441F006A167E /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63B32062441F006A167E /* AlipaySDK.framework */; };
-		750B63BA206244AB006A167E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63B9206244AB006A167E /* libc++.tbd */; };
-		750B63BC206244B5006A167E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63BB206244B5006A167E /* libz.tbd */; };
 		750B63BE206244C1006A167E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63BD206244C1006A167E /* SystemConfiguration.framework */; };
 		750B63C0206244CB006A167E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63BF206244CB006A167E /* CoreTelephony.framework */; };
 		750B63C2206244D4006A167E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B63C1206244D4006A167E /* QuartzCore.framework */; };
@@ -30,6 +27,7 @@
 		750B655B2063B498006A167E /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65512063B498006A167E /* RSADataSigner.m */; };
 		750B655C2063B498006A167E /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 750B65532063B498006A167E /* RSADataVerifier.m */; };
 		750B671220650067006A167E /* AlipaySDK in Frameworks */ = {isa = PBXBuildFile; fileRef = 750B671120650067006A167E /* AlipaySDK */; };
+		758E4A5E2068E2C50053F2D3 /* NSString+S4S_NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E4A5D2068E2C50053F2D3 /* NSString+S4S_NSString.m */; };
 		9F303CFA1E0B7B94002A4A05 /* RCTAliPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +44,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		750B63B32062441F006A167E /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
-		750B63B52062441F006A167E /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		750B63B9206244AB006A167E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		750B63BB206244B5006A167E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		750B63BD206244C1006A167E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -79,6 +75,8 @@
 		750B65532063B498006A167E /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		750B66452064A15A006A167E /* openssl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl; sourceTree = "<group>"; };
 		750B671120650067006A167E /* AlipaySDK */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = AlipaySDK; path = AlipaySDK.framework/AlipaySDK; sourceTree = "<group>"; };
+		758E4A5C2068E2C50053F2D3 /* NSString+S4S_NSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+S4S_NSString.h"; sourceTree = "<group>"; };
+		758E4A5D2068E2C50053F2D3 /* NSString+S4S_NSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+S4S_NSString.m"; sourceTree = "<group>"; };
 		9F303CF51E0B7B94002A4A05 /* libRCTAliPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAliPay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAliPay.h; sourceTree = "<group>"; };
 		9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAliPay.m; sourceTree = "<group>"; };
@@ -103,33 +101,12 @@
 				750B63C0206244CB006A167E /* CoreTelephony.framework in Frameworks */,
 				750B63BE206244C1006A167E /* SystemConfiguration.framework in Frameworks */,
 				750B65562063B498006A167E /* libcrypto.a in Frameworks */,
-				750B63BC206244B5006A167E /* libz.tbd in Frameworks */,
-				750B63BA206244AB006A167E /* libc++.tbd in Frameworks */,
-				750B63B62062441F006A167E /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		750B63B22062441F006A167E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				750B63B32062441F006A167E /* AlipaySDK.framework */,
-			);
-			name = Frameworks;
-			path = "../../../../react-native-smart-alipay/ios/Frameworks";
-			sourceTree = "<group>";
-		};
-		750B63B42062441F006A167E /* AliPayResouces */ = {
-			isa = PBXGroup;
-			children = (
-				750B63B52062441F006A167E /* AlipaySDK.bundle */,
-			);
-			name = AliPayResouces;
-			path = "../../../../react-native-smart-alipay/ios/AliPayResouces";
-			sourceTree = "<group>";
-		};
 		750B63B72062444D006A167E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,10 +181,10 @@
 			children = (
 				750B66452064A15A006A167E /* openssl */,
 				750B65412063B498006A167E /* Ali */,
-				750B63B42062441F006A167E /* AliPayResouces */,
-				750B63B22062441F006A167E /* Frameworks */,
 				9F303CF81E0B7B94002A4A05 /* RCTAliPay.h */,
 				9F303CF91E0B7B94002A4A05 /* RCTAliPay.m */,
+				758E4A5C2068E2C50053F2D3 /* NSString+S4S_NSString.h */,
+				758E4A5D2068E2C50053F2D3 /* NSString+S4S_NSString.m */,
 			);
 			path = RCTAliPay;
 			sourceTree = "<group>";
@@ -275,6 +252,7 @@
 				750B655C2063B498006A167E /* RSADataVerifier.m in Sources */,
 				750B65592063B498006A167E /* NSDataEx.m in Sources */,
 				750B65552063B498006A167E /* APAuthV2Info.m in Sources */,
+				758E4A5E2068E2C50053F2D3 /* NSString+S4S_NSString.m in Sources */,
 				9F303CFA1E0B7B94002A4A05 /* RCTAliPay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

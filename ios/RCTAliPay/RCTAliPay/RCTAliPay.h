@@ -6,5 +6,6 @@
 
 - (void) processOrderWithPaymentResult:(NSDictionary *)resultDic;
 
+- (BOOL) processAuthResult:(NSURL *)url;
 @end
 

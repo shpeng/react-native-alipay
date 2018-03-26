@@ -6,6 +6,7 @@
 #import "Ali/APAuthV2Info.h"
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTBridge.h>
+#import "NSString+S4S_NSString.h"
 
 @implementation RCTAliPay
 
@@ -17,6 +18,7 @@ RCT_EXPORT_MODULE(AliPay);
 {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processOrderWithPaymentResult:) name:@"RCTAliPay_Notification_processOrderWithPaymentResult" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processAuthResult:) name:@"RCTOpenURLNotification" object:nil];
     }
     return self;
 }
@@ -34,11 +36,26 @@ RCT_EXPORT_METHOD(payOrder:(NSDictionary *)params){
     }];
 }
 
-- (void)processOrderWithPaymentResult:(NSNotification *)notification {
-    NSDictionary *resultDic = notification.userInfo;
+- (void)processOrderWithPaymentResult:(NSDictionary *)dict {
+    NSDictionary *resultDic = dict;
     //    NSLog(@"RCTAliPay -> processOrderWithPaymentResult resultDic = %@", resultDic);
     [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
                                                  body:resultDic];
+}
+
+- (BOOL)processAuthResult:(NSNotification *)aNotification {
+    NSString * aURLString =  [aNotification userInfo][@"url"];
+    NSURL * url = [NSURL URLWithString:aURLString];
+        NSLog(@"RCTAliPay -> processAuthResult url = %@", url);
+        if ([url.host isEqualToString:@"safepay"]) {
+            NSString *urlString = [NSString stringWithFormat:@"%@", url];
+            NSDictionary *dict = [urlString getURLParameters];
+            NSLog(@"RCTAliPay -> processAuthResult resultDic = %@", urlString, dict);
+            [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.auth.onAuthResult"
+                                                         body:dict];
+          return YES;
+        }
+    return NO;
 }
 
 RCT_EXPORT_METHOD(login:(NSDictionary *) params) {
@@ -51,7 +68,7 @@ RCT_EXPORT_METHOD(login:(NSDictionary *) params) {
         printf("no auth info || appid || pid || private key");
     }
     
-    APAuthV2Info *authInfo = [APAuthV2Info init];
+    APAuthV2Info *authInfo = [[APAuthV2Info alloc] init];
     authInfo.pid = pid;
     authInfo.appID = appid;
     authInfo.authType = @"LOGIN";
