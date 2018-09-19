@@ -17,8 +17,7 @@ RCT_EXPORT_MODULE(AliPay);
 - (id)init
 {
     if (self = [super init]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processOrderWithPaymentResult:) name:@"RCTAliPay_Notification_processOrderWithPaymentResult" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processAuthResult:) name:@"RCTOpenURLNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processOrderWithPaymentResult:) name:@"RCTOpenURLNotification" object:nil];
     }
     return self;
 }
@@ -29,32 +28,35 @@ RCT_EXPORT_METHOD(payOrder:(NSDictionary *)params){
     NSString *appScheme = [params objectForKey:@"appScheme"];   //应用注册scheme, 对应需要在Info.plist定义URL types
     
     // NOTE: 调用支付结果开始支付, 如没有安装支付宝app，则会走h5页面，支付回调触发这里的callback
-    [[AlipaySDK defaultService] payOrder:orderText fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-        //        NSLog(@"payOrder reslut = %@",resultDic);
-        [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
-                                                     body:resultDic];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[AlipaySDK defaultService] payOrder:orderText fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        }];
+    });
 }
 
-- (void)processOrderWithPaymentResult:(NSDictionary *)dict {
-    NSDictionary *resultDic = dict;
-    //    NSLog(@"RCTAliPay -> processOrderWithPaymentResult resultDic = %@", resultDic);
-    [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
-                                                 body:resultDic];
+- (void)processOrderWithPaymentResult:(NSNotification *)aNotification {
+    
+    NSString * aURLString =  [aNotification userInfo][@"url"];
+    NSURL * url = [NSURL URLWithString:aURLString];
+    if ([url.host isEqualToString:@"safepay"]) {
+        NSString *urlString = [NSString stringWithFormat:@"%@", url];
+        [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
+                                                     body:urlString];
+    }
 }
 
 - (BOOL)processAuthResult:(NSNotification *)aNotification {
     NSString * aURLString =  [aNotification userInfo][@"url"];
     NSURL * url = [NSURL URLWithString:aURLString];
-        NSLog(@"RCTAliPay -> processAuthResult url = %@", url);
-        if ([url.host isEqualToString:@"safepay"]) {
-            NSString *urlString = [NSString stringWithFormat:@"%@", url];
-            NSDictionary *dict = [urlString getURLParameters];
-            NSLog(@"RCTAliPay -> processAuthResult resultDic = %@", urlString, dict);
-            [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.auth.onAuthResult"
-                                                         body:dict];
-          return YES;
-        }
+    NSLog(@"RCTAliPay -> processAuthResult url = %@", url);
+    if ([url.host isEqualToString:@"safepay"]) {
+        NSString *urlString = [NSString stringWithFormat:@"%@", url];
+        NSDictionary *dict = [urlString getURLParameters];
+        NSLog(@"RCTAliPay -> processAuthResult resultDic = %@ %@", urlString, dict);
+        [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.auth.onAuthResult"
+                                                     body:dict];
+        return YES;
+    }
     return NO;
 }
 
@@ -62,7 +64,7 @@ RCT_EXPORT_METHOD(login:(NSDictionary *) params) {
     NSString *appid = [params objectForKey:@"appid"];
     NSString *pid = [params objectForKey:@"pid"];
     NSString *targetid = [params objectForKey:@"target_id"];
-    NSString *rsa2_private = [params objectForKey:@"rsa2_pr;ivate"];
+    NSString *rsa2_private = [params objectForKey:@"rsa2_private"];
     NSString *rsa_private = [params objectForKey:@"rsa_private"];
     if (appid == nil || pid == nil || targetid == nil || rsa_private == nil) {
         printf("no auth info || appid || pid || private key");
@@ -86,8 +88,6 @@ RCT_EXPORT_METHOD(login:(NSDictionary *) params) {
                                      fromScheme:@"S4SFinancialClient"
                                        callback:^(NSDictionary *resultDic) {
                                            NSLog(@"login reslut = %@",resultDic);
-                                           //                                           [self.bridge.eventDispatcher sendAppEventWithName:@"alipay.mobile.securitypay.pay.onPaymentResult"
-                                           //                                                                                        body:resultDic];
                                        }];
     
 }
